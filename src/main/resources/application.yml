@@ -1,0 +1,18 @@
+retry-attempts: 6
+server:
+  port: 8081
+management:
+  server.port: 8082
+spring:
+  kafka:
+    bootstrap-servers: http:\\localhost:9092
+    properties:
+      spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.StringSerializer
+      security.protocol: PLAINTEXT
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: grp_a
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
